@@ -6,7 +6,7 @@
 /*   By: antbonin <antbonin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 15:33:15 by antbonin          #+#    #+#             */
-/*   Updated: 2025/01/30 23:24:09 by antbonin         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:52:47 by antbonin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ int	check_is_digits(char **tab)
 		y = 0;
 		while (tab[x][y])
 		{
-			if (ft_isdigit(tab[x][y]) != 0 || (tab[x][y] == '-'
-					&& ft_isdigit(tab[x][y + 1]) != 0))
+			if ((ft_isdigit(tab[x][y]) != 0 && ft_isdigit(tab[x][y + 1]) != 0)
+				|| (tab[x][y] == '-' && ft_isdigit(tab[x][y + 1]) != 0))
+				return (0);
+			if (ft_isalpha(tab[x][y]))
 				return (0);
 			y++;
 		}
@@ -79,6 +81,29 @@ int	find_char(char *str)
 	return (0);
 }
 
+int	check_double(int *stack_a, int total_size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < total_size)
+	{
+		j = i + 1;
+		while (j < total_size)
+		{
+			if (stack_a[i] == stack_a[j])
+			{
+				ft_printf("Error\n%d appear multiple times\n", stack_a[i]);
+				return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 static int	process_tab(char **tab, int *stack_a, int index, int *check)
 {
 	int	j;
@@ -94,6 +119,8 @@ static int	process_tab(char **tab, int *stack_a, int index, int *check)
 		index++;
 		j++;
 	}
+	if (check_double(stack_a, index))
+		return (-1);
 	return (index);
 }
 
@@ -166,18 +193,18 @@ int	main(int ac, char **av)
 		ft_printf("stack_a = %d stack_b = %d\n", stack_a[i], stack_b[i]);
 		i++;
 	}
-	rra(stack_a, size_a);
-	ra(stack_a, size_a);
-	rb(stack_b, size_b);
-	rr(stack_a, stack_b, size_a, size_b);
-	rrb(stack_b, size_b);
-	rrr(stack_a, stack_b, size_a, size_b);
-	sa(stack_a);
-	sb(stack_b);
-	ss(stack_a, stack_b);
-	pa(stack_a, stack_b, &size_a, &size_b);
-	pa(stack_a, stack_b, &size_a, &size_b);
-	pb(stack_a, stack_b, &size_a, &size_b);
+	// rra(stack_a, size_a);
+	// ra(stack_a, size_a);
+	// rb(stack_b, size_b);
+	// rr(stack_a, stack_b, size_a, size_b);
+	// rrb(stack_b, size_b);
+	// rrr(stack_a, stack_b, size_a, size_b);
+	// sa(stack_a);
+	// sb(stack_b);
+	// ss(stack_a, stack_b);
+	// pa(stack_a, stack_b, &size_a, &size_b);
+	// pa(stack_a, stack_b, &size_a, &size_b);
+	// pb(stack_a, stack_b, &size_a, &size_b);
 	i = 0;
 	ft_printf("after\n");
 	while (i < size_b)
