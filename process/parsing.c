@@ -6,12 +6,12 @@
 /*   By: antbonin <antbonin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 00:38:14 by antbonin          #+#    #+#             */
-/*   Updated: 2025/01/31 00:45:41 by antbonin         ###   ########.fr       */
+/*   Updated: 2025/02/09 18:46:16 by antbonin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/ressource/libft.h"
-#include "source/push_swap.h"
+#include "../libft/ressource/libft.h"
+#include "../source/push_swap.h"
 
 int	find_char(char *str)
 {

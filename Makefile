@@ -11,9 +11,13 @@ SRCS = $(addprefix $(SRC_DIR), \
 		pa_b.c \
 		ra_b.c \
 		rra_b.c \
-		sa_b.c) \
-		main.c \
-		parsing.c
+		sort.c \
+		sort_large.c \
+		sort_large2.c \
+		parsing.c \
+		check_param.c \
+		sa_b.c \
+		main.c)
 
 OBJS = $(addprefix $(OBJ_DIR), $(notdir $(SRCS:.c=.o)))
 
