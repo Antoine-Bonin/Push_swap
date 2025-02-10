@@ -6,7 +6,7 @@
 /*   By: antbonin <antbonin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:18:32 by antbonin          #+#    #+#             */
-/*   Updated: 2025/02/10 15:05:33 by antbonin         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:43:48 by antbonin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	init_data(t_data *data, int ac, char **av)
 	data->len = count_number(av, ac);
 	if (data->len == 0)
 	{
-		ft_printf("Error\n Expecting numbers");
+		ft_putendl_fd("Error\n", 2);
 		return (1);
 	}
 	data->size_a = data->len;
@@ -51,14 +51,13 @@ static int	handle_errors(t_data *data, int ac, char **av)
 {
 	if (parsing(av, ac, data->stack_a) == 1)
 	{
-		ft_printf("Error\nParsing\n");
+		ft_putendl_fd("Error\n", 2);
 		free(data->stack_a);
 		free(data->stack_b);
 		return (1);
 	}
 	if (check_a_is_sorted(data->stack_a, data->size_a) == 1)
 	{
-		ft_printf("stack_a is sorted\n");
 		free(data->stack_a);
 		free(data->stack_b);
 		return (1);
@@ -70,12 +69,15 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
-	if (init_data(&data, ac, av))
-		return (0);
-	if (handle_errors(&data, ac, av))
-		return (0);
-	sort_min(&data);
-	free(data.stack_a);
-	free(data.stack_b);
+	if (ac > 1)
+	{
+		if (init_data(&data, ac, av))
+			return (0);
+		if (handle_errors(&data, ac, av))
+			return (0);
+		sort_min(&data);
+		free(data.stack_a);
+		free(data.stack_b);
+	}
 	return (0);
 }

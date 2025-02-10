@@ -6,7 +6,7 @@
 /*   By: antbonin <antbonin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:43:17 by antbonin          #+#    #+#             */
-/*   Updated: 2025/02/09 18:50:06 by antbonin         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:39:09 by antbonin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,7 @@ int	count_number(char **av, int ac)
 			return (0);
 		j = 0;
 		if (check_is_digits(tab) != 1)
-		{
-			ft_printf("Error\nonly digits\n");
 			return (free_tab(tab), 0);
-		}
 		while (tab[j])
 			j++;
 		total += j;

@@ -6,11 +6,11 @@
 /*   By: antbonin <antbonin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 12:40:20 by antbonin          #+#    #+#             */
-/*   Updated: 2025/01/30 23:54:56 by antbonin         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:44:55 by antbonin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ressource/libft.h"
+#include "./../ressource/libft.h"
 #include <limits.h>
 
 int	ft_atoi(const char *str, int *error)

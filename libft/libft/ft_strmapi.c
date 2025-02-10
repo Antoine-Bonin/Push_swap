@@ -6,11 +6,11 @@
 /*   By: antbonin <antbonin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 16:08:47 by antbonin          #+#    #+#             */
-/*   Updated: 2025/01/30 17:13:51 by antbonin         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:45:41 by antbonin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ressource/libft.h"
+#include "./../ressource/libft.h"
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {

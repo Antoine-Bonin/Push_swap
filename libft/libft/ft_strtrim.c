@@ -6,11 +6,11 @@
 /*   By: antbonin <antbonin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:51:00 by antbonin          #+#    #+#             */
-/*   Updated: 2025/01/30 17:13:51 by antbonin         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:45:41 by antbonin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ressource/libft.h"
+#include "./../ressource/libft.h"
 #include <stdlib.h>
 
 char	*ft_strtrim(char const *s1, char const *set)
