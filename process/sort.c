@@ -6,7 +6,7 @@
 /*   By: antbonin <antbonin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:43:24 by antbonin          #+#    #+#             */
-/*   Updated: 2025/02/09 16:49:52 by antbonin         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:01:30 by antbonin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,15 @@ int	check_a_is_sorted(int *stack_a, int size_a)
 	return (1);
 }
 
-static int	get_min_index(int *stack, int size)
+int	get_optimal_chunk_size(int n)
 {
-	int	i;
-	int	min_idx;
-
-	min_idx = 0;
-	i = 0;
-	while (i < size)
-	{
-		if (stack[i] < stack[min_idx])
-			min_idx = i;
-		i++;
-	}
-	return (min_idx);
+	if (n >= 500)
+		return (n / 9);
+	if (n >= 100)
+		return (n / 5);
+	if (n >= 50)
+		return (n / 3);
+	return (n / 5);
 }
 
 void	sort_3(int *stack_a, int size_a)
@@ -69,50 +64,5 @@ void	sort_3(int *stack_a, int size_a)
 	{
 		sa(stack_a);
 		ra(stack_a, size_a);
-	}
-}
-
-void	sort_4(int *stack_a, int *stack_b, int *size_a, int *size_b)
-{
-	int	min_idx;
-
-	min_idx = get_min_index(stack_a, *size_a);
-	if (min_idx <= *size_a / 2)
-		while (min_idx-- > 0)
-			ra(stack_a, *size_a);
-	else
-		while (min_idx++ < *size_a)
-			rra(stack_a, *size_a);
-	pb(stack_a, stack_b, size_a, size_b);
-	sort_3(stack_a, *size_a);
-	pa(stack_a, stack_b, size_a, size_b);
-}
-
-void	sort_5(int *stack_a, int *stack_b, int *size_a, int *size_b)
-{
-	int	j;
-	int	min_idx;
-
-	j = 0;
-	while (j < 2)
-	{
-		min_idx = get_min_index(stack_a, *size_a);
-		if (min_idx <= *size_a / 2)
-		{
-			while (min_idx-- > 0)
-				ra(stack_a, *size_a);
-		}
-		else
-		{
-			while (min_idx++ < *size_a)
-				rra(stack_a, *size_a);
-		}
-		pb(stack_a, stack_b, size_a, size_b);
-		j++;
-	}
-	sort_3(stack_a, *size_a);
-	while (*size_b > 0)
-	{
-		pa(stack_a, stack_b, size_a, size_b);
 	}
 }

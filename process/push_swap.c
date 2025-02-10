@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antbonin <antbonin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:18:32 by antbonin          #+#    #+#             */
-/*   Updated: 2025/02/09 18:52:17 by antbonin         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:05:33 by antbonin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,7 @@ void	sort_min(t_data *data)
 		sa(data->stack_a);
 	else if (data->size_a == 3)
 		sort_3(data->stack_a, data->size_a);
-	else if (data->size_a == 4)
-		sort_4(data->stack_a, data->stack_b, &data->size_a, &data->size_b);
-	else if (data->size_a == 5)
-		sort_5(data->stack_a, data->stack_b, &data->size_a, &data->size_b);
-	else if (data->size_a > 5)
+	else
 		sort_large(data->stack_a, data->stack_b, &data->size_a, &data->size_b);
 }
 

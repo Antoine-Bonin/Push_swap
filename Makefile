@@ -11,22 +11,23 @@ SRCS = $(addprefix $(SRC_DIR), \
 		pa_b.c \
 		ra_b.c \
 		rra_b.c \
+		sa_b.c \
 		sort.c \
 		sort_large.c \
-		sort_large2.c \
 		parsing.c \
 		check_param.c \
-		sa_b.c \
-		main.c)
+		push_swap.c)
 
 OBJS = $(addprefix $(OBJ_DIR), $(notdir $(SRCS:.c=.o)))
 
+DEPS = $(LIBFT_DIR)ressource/libft.h
+
 all: $(LIBFT) $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) 
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -34,16 +35,16 @@ $(OBJ_DIR)%.o: %.c
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(LIBFT): 
-	make -C $(LIBFT_DIR)
+$(LIBFT): $(LIBFT_DIR)libft/*.c $(DEPS)
+	@make -C $(LIBFT_DIR) --no-print-directory
 
 clean:
-	rm -rf $(OBJ_DIR)
-	make clean -C $(LIBFT_DIR)
+	@rm -rf $(OBJ_DIR)
+	@make clean -C $(LIBFT_DIR) --no-print-directory
 
 fclean: clean
-	rm -f $(NAME)
-	make fclean -C $(LIBFT_DIR)
+	@rm -f $(NAME)
+	@make fclean -C $(LIBFT_DIR) --no-print-directory
 
 re: fclean all
 

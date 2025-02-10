@@ -6,7 +6,7 @@
 /*   By: antbonin <antbonin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:45:19 by antbonin          #+#    #+#             */
-/*   Updated: 2025/02/09 18:45:16 by antbonin         ###   ########.fr       */
+/*   Updated: 2025/02/10 14:55:55 by antbonin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	push_to_b_chunks(int *stack_a, int *stack_b, int *size_a,
 
 	chunk_size = get_optimal_chunk_size(*size_a);
 	chunk_max = chunk_size;
-	while (*size_a > 0)
+	while (*size_a > 3)
 	{
 		i = 0;
 		while (i < *size_a)
@@ -79,6 +79,7 @@ static void	push_to_b_chunks(int *stack_a, int *stack_b, int *size_a,
 		}
 		chunk_max += chunk_size;
 	}
+	sort_3(stack_a, *size_a);
 }
 
 static void	push_back_to_a(int *stack_a, int *stack_b, int *size_a, int *size_b)

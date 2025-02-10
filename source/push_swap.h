@@ -6,7 +6,7 @@
 /*   By: antbonin <antbonin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 21:42:52 by antbonin          #+#    #+#             */
-/*   Updated: 2025/02/09 18:52:40 by antbonin         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:11:49 by antbonin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void		rrr(int *stack_a, int *stack_b, int size_a, int size_b);
 void		pa(int *stack_a, int *stack_b, int *size_a, int *size_b);
 void		pb(int *stack_a, int *stack_b, int *size_a, int *size_b);
 
-/*****************************************************************/
+/*************************parsing********************************/
 
 int			parsing(char **av, int ac, int *stack_a);
 int			check_is_digits(char **tab);
