@@ -22,9 +22,9 @@ OBJS = $(addprefix $(OBJ_DIR), $(notdir $(SRCS:.c=.o)))
 
 DEPS = $(LIBFT_DIR)ressource/libft.h
 
-all: $(LIBFT) $(NAME)
+all:$(NAME)
 
-$(NAME): $(OBJS) 
+$(NAME): $(OBJS) source/push_swap.h $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(DEPS)
@@ -36,7 +36,7 @@ $(OBJ_DIR)%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT): $(LIBFT_DIR)libft/*.c $(DEPS)
-	@make -C $(LIBFT_DIR) --no-print-directory
+	@make -C $(LIBFT_DIR) CFLAGS="$(CFLAGS)" --no-print-directory
 
 clean:
 	@rm -rf $(OBJ_DIR)

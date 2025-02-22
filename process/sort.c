@@ -6,7 +6,7 @@
 /*   By: antbonin <antbonin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:43:24 by antbonin          #+#    #+#             */
-/*   Updated: 2025/02/10 15:01:30 by antbonin         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:46:29 by antbonin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	check_a_is_sorted(int *stack_a, int size_a)
 
 int	get_optimal_chunk_size(int n)
 {
+	if (n >= 2000)
+		return (n / 16);
 	if (n >= 500)
 		return (n / 9);
 	if (n >= 100)
