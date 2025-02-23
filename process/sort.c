@@ -6,7 +6,7 @@
 /*   By: antbonin <antbonin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:43:24 by antbonin          #+#    #+#             */
-/*   Updated: 2025/02/11 18:46:29 by antbonin         ###   ########.fr       */
+/*   Updated: 2025/02/23 16:04:52 by antbonin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	get_optimal_chunk_size(int n)
 		return (n / 5);
 	if (n >= 50)
 		return (n / 3);
-	return (n / 5);
+	return (n / 4);
 }
 
 void	sort_3(int *stack_a, int size_a)
